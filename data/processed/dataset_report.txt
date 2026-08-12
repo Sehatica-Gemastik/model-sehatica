@@ -1,0 +1,125 @@
+NHANES PTM DATASET REPORT - 2017-2018
+============================================================
+
+Rows: 8,892
+Columns: 47
+
+Columns:
+-> SEQN
+-> age
+-> sex
+-> race_ethnicity
+-> education
+-> income_poverty_ratio
+-> weight_kg
+-> height_cm
+-> bmi
+-> waist_cm
+-> systolic_bp
+-> diastolic_bp
+-> diabetes
+-> hypertension
+-> heart_disease
+-> stroke
+-> vigorous_work
+-> vigorous_work_days
+-> vigorous_work_minutes
+-> moderate_work
+-> moderate_work_days
+-> moderate_work_minutes
+-> transport_walking_biking
+-> transport_days
+-> transport_minutes
+-> vigorous_recreation
+-> vigorous_recreation_days
+-> vigorous_recreation_minutes
+-> moderate_recreation
+-> moderate_recreation_days
+-> moderate_recreation_minutes
+-> sedentary_minutes
+-> calories_day1
+-> protein_g_day1
+-> carbohydrate_g_day1
+-> sugar_g_day1
+-> total_fat_g_day1
+-> saturated_fat_g_day1
+-> sodium_mg_day1
+-> fiber_g_day1
+-> cholesterol_mg_day1
+-> alcohol_g_day1
+-> alcohol_ever
+-> alcohol_frequency
+-> alcohol_drinks_per_day
+-> alcohol_binge_frequency
+-> medication_any
+
+Missingness:
+-> vigorous_work_minutes: 84.47%
+-> vigorous_work_days: 84.38%
+-> transport_minutes: 83.92%
+-> vigorous_recreation_minutes: 83.91%
+-> vigorous_recreation_days: 83.87%
+-> transport_days: 83.82%
+-> moderate_recreation_minutes: 74.12%
+-> moderate_recreation_days: 74.04%
+-> moderate_work_minutes: 72.72%
+-> moderate_work_days: 72.57%
+-> alcohol_binge_frequency: 60.70%
+-> alcohol_drinks_per_day: 60.70%
+-> alcohol_frequency: 48.89%
+-> alcohol_ever: 42.31%
+-> stroke: 37.48%
+-> heart_disease: 37.38%
+-> education: 37.37%
+-> sedentary_minutes: 34.26%
+-> vigorous_work: 34.21%
+-> moderate_work: 34.20%
+-> transport_walking_biking: 34.14%
+-> moderate_recreation: 34.14%
+-> vigorous_recreation: 34.14%
+-> hypertension: 30.83%
+-> systolic_bp: 24.52%
+-> diastolic_bp: 24.52%
+-> carbohydrate_g_day1: 18.13%
+-> saturated_fat_g_day1: 18.13%
+-> total_fat_g_day1: 18.13%
+-> sodium_mg_day1: 18.13%
+-> fiber_g_day1: 18.13%
+-> cholesterol_mg_day1: 18.13%
+-> sugar_g_day1: 18.13%
+-> alcohol_g_day1: 18.13%
+-> protein_g_day1: 18.13%
+-> calories_day1: 18.13%
+-> waist_cm: 14.57%
+-> income_poverty_ratio: 13.41%
+-> bmi: 10.05%
+-> height_cm: 9.91%
+-> weight_kg: 7.37%
+-> diabetes: 2.06%
+-> SEQN: 0.00%
+-> age: 0.00%
+-> race_ethnicity: 0.00%
+-> sex: 0.00%
+-> medication_any: 0.00%
+
+Target distributions:
+
+[diabetes]
+0.0: 7,816
+1.0: 893
+nan: 183
+
+[hypertension]
+0.0: 4,014
+nan: 2,741
+1.0: 2,137
+
+[heart_disease]
+0.0: 5,041
+nan: 3,324
+1.0: 527
+
+[stroke]
+0.0: 5,286
+nan: 3,333
+1.0: 273
