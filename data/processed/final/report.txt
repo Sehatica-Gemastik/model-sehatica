@@ -1,0 +1,140 @@
+SEHATICA PTM HANDLING REPORT
+============================================================
+
+rows: 5,856
+columns: 52
+
+columns:
+  SEQN
+  age
+  sex
+  race_ethnicity
+  education
+  income_poverty_ratio
+  weight_kg
+  height_cm
+  bmi
+  waist_cm
+  systolic_bp
+  diastolic_bp
+  diabetes
+  hypertension
+  heart_disease
+  stroke
+  vigorous_work
+  vigorous_work_days
+  vigorous_work_minutes
+  moderate_work
+  moderate_work_days
+  moderate_work_minutes
+  transport_walking_biking
+  transport_days
+  transport_minutes
+  vigorous_recreation
+  vigorous_recreation_days
+  vigorous_recreation_minutes
+  moderate_recreation
+  moderate_recreation_days
+  moderate_recreation_minutes
+  sedentary_minutes
+  calories_day1
+  protein_g_day1
+  carbohydrate_g_day1
+  sugar_g_day1
+  total_fat_g_day1
+  saturated_fat_g_day1
+  sodium_mg_day1
+  fiber_g_day1
+  cholesterol_mg_day1
+  alcohol_g_day1
+  alcohol_ever
+  alcohol_frequency
+  alcohol_drinks_per_day
+  alcohol_binge_frequency
+  medication_any
+  vigorous_work_est_met
+  moderate_work_est_met
+  transport_walking_biking_est_met
+  vigorous_recreation_est_met
+  moderate_recreation_est_met
+
+missingness:
+  alcohol_drinks_per_day: 40.32%
+  alcohol_binge_frequency: 40.32%
+  alcohol_frequency: 22.39%
+  calories_day1: 14.91%
+  protein_g_day1: 14.91%
+  carbohydrate_g_day1: 14.91%
+  sugar_g_day1: 14.91%
+  total_fat_g_day1: 14.91%
+  saturated_fat_g_day1: 14.91%
+  sodium_mg_day1: 14.91%
+  alcohol_g_day1: 14.91%
+  fiber_g_day1: 14.91%
+  cholesterol_mg_day1: 14.91%
+  income_poverty_ratio: 14.26%
+  alcohol_ever: 12.40%
+  waist_cm: 11.48%
+  diastolic_bp: 10.35%
+  systolic_bp: 10.35%
+  bmi: 7.24%
+  height_cm: 7.04%
+  weight_kg: 7.04%
+  stroke: 5.07%
+  heart_disease: 4.92%
+  education: 4.90%
+  diabetes: 3.04%
+  moderate_work_minutes: 0.31%
+  moderate_work_est_met: 0.31%
+  vigorous_work_est_met: 0.24%
+  vigorous_work_minutes: 0.24%
+  sedentary_minutes: 0.17%
+  hypertension: 0.17%
+  transport_minutes: 0.15%
+  transport_walking_biking_est_met: 0.15%
+  moderate_recreation_minutes: 0.12%
+  moderate_recreation_est_met: 0.12%
+  vigorous_work_days: 0.10%
+  vigorous_work: 0.10%
+  moderate_work_days: 0.09%
+  moderate_work: 0.09%
+  vigorous_recreation_minutes: 0.05%
+  vigorous_recreation_est_met: 0.05%
+
+target distributions:
+
+[diabetes]
+  positive: 878
+  negative: 4,800
+  unknown: 178
+  known: 5,678
+  prevalence: 15.46%
+
+[hypertension]
+  positive: 2,130
+  negative: 3,716
+  unknown: 10
+  known: 5,846
+  prevalence: 36.44%
+
+[heart_disease]
+  positive: 527
+  negative: 5,041
+  unknown: 288
+  known: 5,568
+  prevalence: 9.46%
+
+[stroke]
+  positive: 273
+  negative: 5,286
+  unknown: 297
+  known: 5,559
+  prevalence: 4.91%
+
+feature groups:
+demographic: age, sex, race_ethnicity, education, income_poverty_ratio
+anthropometric: weight_kg, height_cm, bmi, waist_cm, systolic_bp, diastolic_bp
+dietary: calories_day1, protein_g_day1, carbohydrate_g_day1, sugar_g_day1, total_fat_g_day1, saturated_fat_g_day1, sodium_mg_day1, fiber_g_day1, cholesterol_mg_day1, alcohol_g_day1
+alcohol: alcohol_ever, alcohol_frequency, alcohol_drinks_per_day, alcohol_binge_frequency
+physical_activity: [flags + days/minutes + met features]
+medication: medication_any

@@ -1,0 +1,103 @@
+SEHATICA PTM TARGET AUDIT
+============================================================
+
+principle: missing label != negative label
+NaN means unknown, not healthy
+
+diabetes
+--------
+source: DIQ_J (DIQ010 primary, DIQ070 supplementary)
+known: 5,678 (positive: 878, negative: 4,800)
+unknown: 178
+potentially recoverable: 33
+not recoverable: 145
+
+recovery rules:
+  DIQ010=1 -> positive, DIQ010=2 -> negative
+  DIQ010=3 (borderline) -> unknown unless DIQ070=1 -> positive
+  DIQ010=9 (don't know) -> not recoverable
+
+unknown breakdown:
+  borderline (DIQ010=3): 174
+  don't know (DIQ010=9): 4
+  recoverable via DIQ070=1 (taking diabetes pills): 33
+  not recoverable: 145
+
+training recommendation: train on known labels only; optional deterministic relabel for borderline cases with DIQ070=1 (+33 samples)
+
+hypertension
+------------
+source: BPQ_J (BPQ020 primary) + BPX_J measured BP (supplementary)
+known: 5,846 (positive: 2,130, negative: 3,716)
+unknown: 10
+potentially recoverable: 6
+not recoverable: 4
+
+recovery rules:
+  BPQ020=1 -> positive, BPQ020=2 -> negative
+  BPQ020=9 (don't know) -> unknown
+  BPQ030=1 (taking HBP meds) -> positive if BPQ020 missing
+  measured BP: systolic>=140 OR diastolic>=90 -> positive (clinical rule)
+
+unknown breakdown:
+  don't know (BPQ020=9): 10
+  recoverable via measured BP elevation: 6
+  recoverable via BPQ030=1 (HBP medication): 0
+  not recoverable: 4
+
+training recommendation: train on known labels; measured BP recovery uses different definition than self-reported, treat as optional experiment
+
+heart_disease
+-------------
+source: MCQ_J (MCQ160B-E, age >= 20 skip pattern)
+known: 5,568 (positive: 527, negative: 5,041)
+unknown: 288
+potentially recoverable: 0
+not recoverable: 288
+
+recovery rules:
+  any MCQ160B-E=1 -> positive, all MCQ160B-E=2 -> negative
+  age < 20: questions not asked (NHANES skip pattern)
+  MCQ160*=9 (don't know) -> not recoverable
+
+unknown breakdown:
+  age < 20 (question not asked): 287
+  age >= 20 with don't know responses: 1
+  recoverable: 0
+  not recoverable: 288
+
+training recommendation: train on known labels only; unknown is mostly age 18-19 skip, do not impute as negative
+
+stroke
+------
+source: MCQ_J (MCQ160F, age >= 20 skip pattern)
+known: 5,559 (positive: 273, negative: 5,286)
+unknown: 297
+potentially recoverable: 0
+not recoverable: 297
+
+recovery rules:
+  MCQ160F=1 -> positive, MCQ160F=2 -> negative
+  age < 20: question not asked (NHANES skip pattern)
+  MCQ160F=9 (don't know) -> not recoverable
+
+unknown breakdown:
+  age < 20 (question not asked): 287
+  age >= 20 with don't know (MCQ160F=9): 10
+  recoverable: 0
+  not recoverable: 297
+
+training recommendation: train on known labels only; unknown is mostly age 18-19 skip, do not impute as negative
+
+summary
+------------------------------------------------------------
+total adults: 5,856
+
+per-target training populations (known labels only):
+  diabetes: 5,678 samples
+  hypertension: 5,846 samples
+  heart_disease: 5,568 samples
+  stroke: 5,559 samples
+
+next step: train/test split -> feature preprocessing -> model training
+each target may use a different training population
