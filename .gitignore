@@ -1,0 +1,5 @@
+*/doc
+data/processed/final/ml_eval
+data/processed/final/ml_models
+data/processed/final/ml_ready
+__pycache__
